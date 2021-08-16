@@ -3,7 +3,7 @@ import { extname, dirname, join } from "path";
 import fs from "fs-extra";
 import uniqid from "uniqid";
 
-const productsJSONPath = join(
+export const productsJSONPath = join(
     dirname(fileURLToPath(
         import.meta.url)),
     "../data/products.json"
@@ -23,12 +23,13 @@ export const readProduct = async() => {
         throw error;
     }
 };
-
+export let id
 export const writeProduct = async(content) => {
     try {
+        id = uniqid()
         const products = await readProduct();
         const newProduct = {
-            id: uniqid(),
+            id: id,
             ...content,
             createdAt: new Date().toISOString(),
         };
@@ -103,6 +104,8 @@ export const listCategory = async(category) => {
         throw error;
     }
 };
+
+
 
 const product = {
     new: writeProduct,

@@ -70,6 +70,8 @@ export const listCategory = async(req, res) => {
     }
 };
 
+
+
 const productHandlers = {
     list: listProducts,
     create: createProduct,
