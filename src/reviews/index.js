@@ -54,17 +54,45 @@ routerReviews.post("/", async (req, res, next) => {
 });
 
 routerReviews.put("/:reviewId", async (req, res, next) => {
-  const reviews = await readReviews();
+  try {
+    const reviews = await readReviews();
 
-  const upgradeReview = { ...req.body, id: req.id };
+    const filterReviws = reviews.filter(
+      (review) => review.id !== req.params.reviewId
+    );
 
-  const filterReviws = reviews.filter(
-    (review) => review.id !== req.params.reviewId
-  );
+    console.log(filterReviws);
 
-  console.log(filterReviws);
+    const upgradeReview = {
+      ...req.body,
+      id: req.params.reviewId,
+      upgradedAT: new Date(),
+    };
 
-  res.send();
+    filterReviws.push(upgradeReview);
+
+    await writeReviews(filterReviws);
+
+    res.send(filterReviws);
+  } catch (error) {
+    next(error);
+  }
+});
+
+routerReviews.delete("/:reviewId", async (req, res, next) => {
+  try {
+    const reviews = await readReviews();
+
+    const remainReviews = reviews.filter(
+      (review) => review.id !== req.params.reviewId
+    );
+
+    await writeReviews(remainReviews);
+
+    res.status(204).send();
+  } catch (error) {
+    next(error);
+  }
 });
 
 export default routerReviews;
