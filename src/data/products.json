@@ -1,1 +1,32 @@
-[{"id":"sktwi818kseoa8v4","name":"q","description":"real-time","brand":"Awesome Soft Pants","imageUrl":"https://jairo.name","price":477.91,"category":"clothes","createdAt":"2021-08-16T13:28:22.623Z"},{"id":"sktwi818kseoambt","name":"j","description":"composite","brand":"Handmade Metal Hat","imageUrl":"https://chyna.net","price":839.6,"category":"book","createdAt":"2021-08-16T13:28:40.075Z"},{"id":"sktwi818kseocom3","name":"8","description":"non-volatile","brand":"Incredible Wooden Tuna","imageUrl":"http://emelie.biz","price":822.24,"category":"smartphones","createdAt":"2021-08-16T13:30:16.349Z"}]
+[
+    {
+        "id": "sktwi818kseoa8v4",
+        "name": "q",
+        "description": "real-time",
+        "brand": "Awesome Soft Pants",
+        "imageUrl": "https://jairo.name",
+        "price": 477.91,
+        "category": "clothes",
+        "createdAt": "2021-08-16T13:28:22.623Z"
+    },
+    {
+        "id": "sktwi818kseoambt",
+        "name": "j",
+        "description": "composite",
+        "brand": "Handmade Metal Hat",
+        "imageUrl": "https://chyna.net",
+        "price": 839.6,
+        "category": "book",
+        "createdAt": "2021-08-16T13:28:40.075Z"
+    },
+    {
+        "id": "sktwi818kseocom3",
+        "name": "8",
+        "description": "non-volatile",
+        "brand": "Incredible Wooden Tuna",
+        "imageUrl": "http://emelie.biz",
+        "price": 822.24,
+        "category": "smartphones",
+        "createdAt": "2021-08-16T13:30:16.349Z"
+    }
+]
