@@ -1,4 +1,5 @@
 import product from "../../utils/fs-utils.js";
+import { readReviews } from '../../readAndWrite/readAndWrite.js'
 
 export const listProducts = async(req, res) => {
     try {
@@ -70,6 +71,21 @@ export const listCategory = async(req, res) => {
     }
 };
 
+export const reviewList = async(req, res) => {
+    try {
+        const newProduct = await product.reviewList(req.params.id)
+            //console.log(newProduct[0].id)
+        const id = newProduct[0].id;
+        const reviews = await readReviews()
+            //console.log(reviews)
+        const review = reviews.filter((review) => review.productId === id)
+            //console.log(review)
+        res.send(review)
+    } catch (error) {
+        console.log(error)
+        res.status(500).send({ error: error.message });
+    }
+}
 
 
 const productHandlers = {
@@ -79,6 +95,7 @@ const productHandlers = {
     update: updateProduct,
     getCategory: listCategory,
     imgURL: uploadImage,
+    reviewList: reviewList
 };
 
 export default productHandlers;

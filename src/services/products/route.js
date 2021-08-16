@@ -16,7 +16,7 @@ productService.put('/:id', productHandlers.update)
 
 productService.get('/filter', productHandlers.getCategory)
 
-productService.get("/:id/reviews", productHandlers.list);
+productService.get("/:id/reviews", productHandlers.reviewList);
 
 
 

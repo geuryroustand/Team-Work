@@ -38,6 +38,20 @@ routerReviews.get("/:reviewId", async(req, res, next) => {
     }
 });
 
+routerReviews.get("/:reviewId/reviews", async(req, res, next) => {
+    try {
+        const reviews = await readReviews();
+        reviews = reviews.filter((review) => review.productId === req.params.reviewId)
+        if (reviews) {
+            res.send(reviews)
+        } else {
+            res.send({ message: `no reviews for the product with id:${req.params.reviewId} ` })
+        }
+    } catch (error) {
+        throw (error)
+    }
+})
+
 routerReviews.post("/", bodyValidation, async(req, res, next) => {
     try {
         const listError = validationResult(req);
@@ -46,19 +60,31 @@ routerReviews.post("/", bodyValidation, async(req, res, next) => {
         if (!listError.isEmpty()) {
             next(createHttpError(400), { listError });
         } else {
-            const reviews = await readReviews();
-            // productJSON.slice(0, 1).map(async(product) => {
-            const newReview = {
-                ...req.body,
-                id: uniqid(),
-                createdAt: new Date(),
-                productId: id,
-            };
-            reviews.push(newReview);
-            await writeReviews(reviews);
-            res.status(201).send({ id: newReview.id });
-            //})
-
+            if (req.body.productId) {
+                const reviews = await readReviews();
+                // productJSON.slice(0, 1).map(async(product) => {
+                const newReview = {
+                    ...req.body,
+                    id: uniqid(),
+                    createdAt: new Date()
+                };
+                reviews.push(newReview);
+                await writeReviews(reviews);
+                res.status(201).send({ id: newReview.id });
+                //})
+            } else {
+                const reviews = await readReviews();
+                // productJSON.slice(0, 1).map(async(product) => {
+                const newReview = {
+                    ...req.body,
+                    id: uniqid(),
+                    createdAt: new Date(),
+                    productId: id,
+                };
+                reviews.push(newReview);
+                await writeReviews(reviews);
+                res.status(201).send({ id: newReview.id });
+            }
 
         }
     } catch (error) {

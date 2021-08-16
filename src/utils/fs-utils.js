@@ -105,7 +105,15 @@ export const listCategory = async(category) => {
     }
 };
 
-
+export const reviewList = async(id) => {
+    try {
+        const products = await readProduct()
+        const product = products.filter((product) => product.id === id)
+        return product
+    } catch (error) {
+        throw (error)
+    }
+}
 
 const product = {
     new: writeProduct,
@@ -114,6 +122,7 @@ const product = {
     update: updateProduct,
     getCategory: listCategory,
     image: uploadFile,
+    reviewList: reviewList
 };
 
 export default product;
