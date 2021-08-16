@@ -1,1 +1,13 @@
-[{"id":"5a2qo1365kseeqqne","name":"4","description":"zero administration","brand":"Incredible Wooden Salad","imageUrl":"http://clare.com","price":917.37,"category":"smartphones","createdAt":"2021-08-16T09:01:16.009Z"}]
+[
+    {
+        "id": "5a2qo1365kseeqqne",
+        "name": "4",
+        "description": "zero administration",
+        "brand": "Incredible Wooden Salad",
+        "imageUrl": "http://localhost:3003/5a2qo1365kseeqqne.jpg",
+        "price": 917.37,
+        "category": "smartphones",
+        "createdAt": "2021-08-16T09:01:16.009Z",
+        "updatedAt": "2021-08-16T10:45:27.873Z"
+    }
+]

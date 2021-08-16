@@ -1,10 +1,15 @@
-import { Router } from 'express'
-import productHandlers from './handlers.js'
+import { Router } from "express";
+import productHandlers from "./handlers.js";
+import multer from "multer";
 
-const productService = Router()
+const fileParse = multer();
 
-productService.get('/', productHandlers.list)
+const productService = Router();
 
-productService.post('/', productHandlers.create)
+productService.get("/", productHandlers.list);
 
-export default productService
+productService.post("/", productHandlers.create);
+
+productService.put("/:id/img", fileParse.single("img"), productHandlers.imgURL);
+
+export default productService;
