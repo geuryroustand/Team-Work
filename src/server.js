@@ -1,20 +1,21 @@
 import express from "express";
-import cors from 'cors'
+import cors from "cors";
 import listEndpoints from "express-list-endpoints";
-import services from './services/index.js'
+import services from "./services/index.js";
+import { publicJSONPath } from "./utils/fs-utils.js";
 
 const port = 3001;
 
 const server = express();
 
-server.use(cors())
+server.use(cors());
+server.use("/", express.static(publicJSONPath));
+server.use(express.json());
 
-server.use(express.json())
+server.use("/", services);
 
-server.use('/', services)
-
-console.log(listEndpoints(server))
+console.log(listEndpoints(server));
 
 server.listen(port, () => {
-    console.log("server running");
+  console.log("server running");
 });
