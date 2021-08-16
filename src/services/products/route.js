@@ -11,4 +11,6 @@ productService.delete('/:id', productHandlers.delete)
 
 productService.put('/:id', productHandlers.update)
 
+productService.get('/filter', productHandlers.getCategory)
+
 export default productService

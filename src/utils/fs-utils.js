@@ -58,11 +58,23 @@ export const updateProduct = async(id, content) => {
     }
 }
 
+export const listCategory = async(category) => {
+    try {
+        console.log({ category })
+        const products = await readProduct()
+        const categoryList = products.filter((product) => product.category === category)
+        return categoryList
+    } catch (error) {
+        throw (error)
+    }
+}
+
 const product = {
     new: writeProduct,
     read: readProduct,
     delete: deleteProduct,
-    update: updateProduct
+    update: updateProduct,
+    getCategory: listCategory
 }
 
 export default product

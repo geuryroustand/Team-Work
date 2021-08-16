@@ -37,11 +37,22 @@ export const updateProduct = async(req, res) => {
     }
 }
 
+export const listCategory = async(req, res) => {
+    try {
+        console.log({ q: req.query })
+        const productCategory = await product.getCategory(req.query.category)
+        res.send(productCategory)
+    } catch (error) {
+        res.status(500).send({ error: error.message })
+    }
+}
+
 const productHandlers = {
     list: listProducts,
     create: createProduct,
     delete: deleteProduct,
-    update: updateProduct
+    update: updateProduct,
+    getCategory: listCategory
 }
 
 export default productHandlers

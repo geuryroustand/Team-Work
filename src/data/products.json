@@ -1,1 +1,92 @@
-[{"id":"5a2qo14qkksefavl4","name":"3310","description":"static","brand":"Ergonomic Wooden Shirt","imageUrl":"https://rosina.com","price":100.09,"category":"smartphones","createdAt":"2021-08-16T09:16:55.527Z","updatedAt":"2021-08-16T09:56:34.339Z"}]
+[{
+        "id": "5a2qo14qkksefavl4",
+        "name": "3310",
+        "description": "static",
+        "brand": "Ergonomic Wooden Shirt",
+        "imageUrl": "https://rosina.com",
+        "price": 100.09,
+        "category": "smartphones",
+        "createdAt": "2021-08-16T09:16:55.527Z",
+        "updatedAt": "2021-08-16T09:56:34.339Z"
+    },
+    {
+        "id": "5a2qo16uwkseh1a1k",
+        "name": "q",
+        "description": "high-level",
+        "brand": "Unbranded Cotton Ball",
+        "imageUrl": "https://alfonzo.info",
+        "price": 984.24,
+        "category": "smartphones",
+        "createdAt": "2021-08-16T10:05:26.935Z"
+    },
+    {
+        "id": "5a2qo16uwkseh1bjx",
+        "name": "x",
+        "description": "composite",
+        "brand": "Intelligent Frozen Sausages",
+        "imageUrl": "http://mya.com",
+        "price": 806.98,
+        "category": "smartphones",
+        "createdAt": "2021-08-16T10:05:28.893Z"
+    },
+    {
+        "id": "5a2qo16uwkseh20g0",
+        "name": "8",
+        "description": "radical",
+        "brand": "Rustic Wooden Keyboard",
+        "imageUrl": "http://hillard.info",
+        "price": 560.1,
+        "category": "book",
+        "createdAt": "2021-08-16T10:06:01.152Z"
+    },
+    {
+        "id": "5a2qo16uwkseh21tt",
+        "name": "6",
+        "description": "optimal",
+        "brand": "Licensed Cotton Cheese",
+        "imageUrl": "http://chelsey.biz",
+        "price": 373.58,
+        "category": "book",
+        "createdAt": "2021-08-16T10:06:02.945Z"
+    },
+    {
+        "id": "5a2qo16uwkseh24dl",
+        "name": "t",
+        "description": "maximized",
+        "brand": "Intelligent Frozen Towels",
+        "imageUrl": "http://murphy.info",
+        "price": 501.92,
+        "category": "book",
+        "createdAt": "2021-08-16T10:06:06.249Z"
+    },
+    {
+        "id": "5a2qo16uwkseh2f8p",
+        "name": "u",
+        "description": "radical",
+        "brand": "Tasty Fresh Fish",
+        "imageUrl": "https://ashlynn.name",
+        "price": 658.98,
+        "category": "clothes",
+        "createdAt": "2021-08-16T10:06:20.329Z"
+    },
+    {
+        "id": "5a2qo16uwkseh2fwt",
+        "name": "l",
+        "description": "background",
+        "brand": "Intelligent Soft Car",
+        "imageUrl": "http://herminio.info",
+        "price": 353.4,
+        "category": "clothes",
+        "createdAt": "2021-08-16T10:06:21.197Z"
+    },
+    {
+        "id": "5a2qo16uwkseh2gnu",
+        "name": "9",
+        "description": "motivating",
+        "brand": "Ergonomic Plastic Chicken",
+        "imageUrl": "http://brannon.name",
+        "price": 234.88,
+        "category": "clothes",
+        "createdAt": "2021-08-16T10:06:22.170Z"
+    }
+]
