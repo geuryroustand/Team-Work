@@ -27,9 +27,42 @@ export const writeProduct = async(content) => {
     }
 }
 
+export const deleteProduct = async(id) => {
+    try {
+        let products = await readProduct()
+        products = products.filter((product) => product.id !== id)
+        await fs.writeJSON(productsJSONPath, products)
+    } catch (error) {
+        throw (error)
+    }
+}
+
+export const updateProduct = async(id, content) => {
+    try {
+        const products = await readProduct()
+        let productIndex = products.findIndex((product) => product.id === id)
+        if (productIndex != -1) {
+            let product = products[productIndex]
+            product = {
+                id,
+                ...product,
+                ...content,
+                updatedAt: new Date().toISOString()
+            }
+            products[productIndex] = product
+            await fs.writeJSON(productsJSONPath, products)
+            return product
+        }
+    } catch (error) {
+        throw new Error(`product with ${id} not found`)
+    }
+}
+
 const product = {
     new: writeProduct,
-    read: readProduct
+    read: readProduct,
+    delete: deleteProduct,
+    update: updateProduct
 }
 
 export default product
