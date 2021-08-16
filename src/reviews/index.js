@@ -1,6 +1,8 @@
 import express from "express";
 import uniqid from "uniqid";
 import createHttpError from "http-errors";
+import bodyValidation from "../validation.js";
+import { validationResult } from "express-validator";
 
 import { readReviews, writeReviews } from "../readAndWrite/readAndWrite.js";
 const routerReviews = express();
@@ -33,21 +35,27 @@ routerReviews.get("/:reviewId", async (req, res, next) => {
   }
 });
 
-routerReviews.post("/", async (req, res, next) => {
+routerReviews.post("/", bodyValidation, async (req, res, next) => {
   try {
-    const reviews = await readReviews();
+    const listError = validationResult(req);
 
-    const newReview = {
-      ...req.body,
-      id: uniqid(),
-      createdAt: new Date(),
-      productId: uniqid(),
-    };
-    reviews.push(newReview);
+    if (!listError.isEmpty()) {
+      next(createHttpError(400), { listError });
+    } else {
+      const reviews = await readReviews();
 
-    await writeReviews(reviews);
+      const newReview = {
+        ...req.body,
+        id: uniqid(),
+        createdAt: new Date(),
+        productId: uniqid(),
+      };
+      reviews.push(newReview);
 
-    res.status(201).send({ id: newReview.id });
+      await writeReviews(reviews);
+
+      res.status(201).send({ id: newReview.id });
+    }
   } catch (error) {
     next(error);
   }
