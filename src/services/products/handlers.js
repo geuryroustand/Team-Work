@@ -9,6 +9,20 @@ export const listProducts = async (req, res) => {
   }
 };
 
+// export const productReview = async (req, res) => {
+//   try {
+//     const productsList = await product.read();
+//     const product = productsList.filter(pro => pro.id === req.params.id)
+//     if (product){
+//       const
+//     }
+//     // res.send(productsList);
+
+//   } catch (error) {
+//     res.status(500).send({ error: error.message });
+//   }
+// };
+
 export const createProduct = async (req, res) => {
   try {
     const newProduct = await product.new(req.body);

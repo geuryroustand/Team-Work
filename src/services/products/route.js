@@ -8,6 +8,8 @@ const productService = Router();
 
 productService.get("/", productHandlers.list);
 
+productService.get("/:id/reviews", productHandlers.list);
+
 productService.post("/", productHandlers.create);
 
 productService.put("/:id/img", fileParse.single("img"), productHandlers.imgURL);
